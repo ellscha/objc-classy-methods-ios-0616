@@ -10,13 +10,40 @@
 @implementation FISAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    NSString *katherine = @"Katherine";
+    NSString *katherineHepburn = [katherine stringByAppendingString:@" Hepburn"];
+    NSLog(@"%@", katherineHepburn);
     
-    /**
-     
-     *  Write your code here.
-     
-     */
+    
+    NSString *james = @"James";
+    NSString *jamesStewart = [[NSString alloc] initWithFormat:@"%@ %@", james, @"Stewart"];
+    NSLog(@"%@", jamesStewart);
+    
+    NSString *queen = @"Queen";
+    NSString *queenElizabethII = [NSString stringWithFormat:@"%@ %@ %@", queen, @"Elizabeth", @"II"];
+    NSLog(@"%@", queenElizabethII);
+    
+    
+    NSArray *classyThings = @[ @"monocle", @"top hat", @"martini glass"];
+    NSLog(@"%@", classyThings);
+    
+    NSArray *classyPeople = [[NSArray alloc] initWithObjects:katherineHepburn, jamesStewart, queenElizabethII, nil];
+    NSLog(@"%@", classyPeople);
+    
+    NSArray *classyDrinks = [NSArray arrayWithObjects:@"Old Fashioned", @"Churchill Martini", @"Prosecco",nil];
+    NSLog(@"%@", classyDrinks);
+    
+    NSDictionary *classByLiteral = @{ @"classy things" :classyThings,
+                                      @"classy people" :classyPeople,
+                                      @"classy drinks" :classyDrinks
+                                      };
+    NSLog(@"%@", classByLiteral);
+    
+    NSDictionary *classByInit = [[NSDictionary alloc] initWithObjectsAndKeys:classyThings, @"classy things", classyPeople, @"classy people", classyDrinks, @"classy drinks", nil];
+    NSLog(@"%@", classByInit);
+    
+    NSDictionary *classByClass = [NSDictionary dictionaryWithObjects:@[classyThings, classyPeople, classyDrinks] forKeys:@[@"classy things", @"classy people", @"classy drinks"]];
+    NSLog(@"%@", classByClass);
     
     return YES;
 }
